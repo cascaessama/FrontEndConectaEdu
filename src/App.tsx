@@ -1,6 +1,6 @@
 import {  Navigate, Route, Routes } from "react-router-dom"
 import LoginForm from "./components/LoginForm"
-import Admin from "./pages/admin"
+import Admin from "./pages/Admin"
 import Cadastrar from "./pages/Cadastrar"
 import Editar from "./pages/Editar"
 import Home from "./pages/Home"
