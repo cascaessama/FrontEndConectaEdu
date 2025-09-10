@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 type Post = {
-  id: string;                           // id real da API (id ou _id)
-  rowKey: string;                       // chave única para o React
+  id: string;
+  rowKey: string;
   titulo: string;
   conteudo: string;
   dataCriacao: string | Date;
@@ -141,8 +141,7 @@ export default function Admin() {
   const [error, setError] = useState<string | null>(null);
 
   const token = localStorage.getItem("authToken");
-
-  // Normaliza o post e cria uma chave de linha estável
+  
   function normalizePost(p: any, idx: number): Post {
     const realId = p?.id ?? p?._id ?? "";
     const id = realId ? String(realId) : "";

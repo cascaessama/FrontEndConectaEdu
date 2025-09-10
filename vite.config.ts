@@ -11,7 +11,6 @@ export default defineConfig({
         target: 'https://conectaedu.onrender.com',
         changeOrigin: true,
         secure: true,
-        // remove o /api antes de encaminhar
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },

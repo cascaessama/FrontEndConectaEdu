@@ -94,7 +94,6 @@ export default function Cadastrar() {
   const [titulo, setTitulo] = useState("");
   const [autor, setAutor] = useState("");
   const [dataCriacao, setDataCriacao] = useState<string>(() => {
-    // valor inicial como agora no formato datetime-local (YYYY-MM-DDTHH:mm)
     const d = new Date();
     d.setSeconds(0, 0);
     const pad = (n: number) => String(n).padStart(2, "0");
@@ -112,7 +111,6 @@ export default function Cadastrar() {
   }, [token, navigate]);
 
   function toISO(dtLocal: string): string {
-    // converte "YYYY-MM-DDTHH:mm" para ISO (UTC)
     const iso = new Date(dtLocal).toISOString();
     return iso;
   }
@@ -145,7 +143,7 @@ export default function Cadastrar() {
         body: JSON.stringify(payload),
       });
 
-      const text = await res.text(); // evita crash se não vier JSON
+      const text = await res.text();
       if (!res.ok) {
         let msg = `Falha ao salvar (HTTP ${res.status})`;
         try {

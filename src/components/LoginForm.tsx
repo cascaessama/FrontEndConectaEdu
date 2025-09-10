@@ -84,14 +84,12 @@ export default function LoginForm() {
     setSubmitting(true);
 
     try {
-      // COM PROXY DO VITE ATIVO (/api -> conectaedu.onrender.com)
       const res = await fetch("/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
-      // se a API responder algo não-json, isso evita crash
       const text = await res.text();
       let data: LoginResponse = {};
       try {
@@ -106,7 +104,6 @@ export default function LoginForm() {
         );
       }
 
-      // Lê o token (prioriza access_token conforme seu backend)
       const token =
         data.access_token ??
         data.token ??

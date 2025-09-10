@@ -92,10 +92,8 @@ export default function LerPost() {
     setLoading(true);
     setError(null);
     try {
-      // tenta GET /portal/:id
       let res = await fetch(`/api/portal/${postId}`);
       if (!res.ok) {
-        // fallback: busca todos e filtra
         const resAll = await fetch(`/api/portal`);
         if (!resAll.ok) throw new Error(`Falha ao buscar post (HTTP ${resAll.status})`);
         const arr = (await resAll.json()) as any[];
