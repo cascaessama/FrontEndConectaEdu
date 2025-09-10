@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    allowedHosts: ['frontend-conectaedu.onrender.com'],
     proxy: {
       '/api': {
         target: 'https://conectaedu.onrender.com',
