@@ -25,9 +25,12 @@ const Card = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: 0 0 6px;
-  font-size: 24px;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #2b2b2b;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
 `;
 
 const Meta = styled.p`

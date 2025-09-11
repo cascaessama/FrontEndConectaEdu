@@ -1,6 +1,7 @@
 // src/pages/Editar.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
+import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 
 type Post = {
@@ -27,8 +28,12 @@ const Card = styled.form`
 `;
 
 const Title = styled.h1`
-  margin: 0 0 8px;
-  font-size: 22px;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
 `;
 
 const Label = styled.label`
@@ -228,70 +233,70 @@ export default function Editar() {
 
   if (loading) {
     return (
-      <Page>
-        <Title>Editar Post</Title>
-        <div style={{ padding: 12 }}>Carregando…</div>
-      </Page>
+      <div>
+        <Header />
+        <Page>
+          <Title>Editar Post</Title>
+          <div style={{ padding: 12 }}>Carregando…</div>
+        </Page>
+      </div>
     );
   }
 
   return (
-    <Page>
-      <Title>Editar Post</Title>
-
-      <Card onSubmit={handleSubmit}>
-        <div>
-          <Label htmlFor="titulo">Título</Label>
-          <Input
-            id="titulo"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="autor">Autor</Label>
-          <Input
-            id="autor"
-            value={autor}
-            onChange={(e) => setAutor(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="data">Data de criação</Label>
-          <Input
-            id="data"
-            type="datetime-local"
-            value={dataCriacao}
-            onChange={(e) => setDataCriacao(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="conteudo">Conteúdo</Label>
-          <TextArea
-            id="conteudo"
-            value={conteudo}
-            onChange={(e) => setConteudo(e.target.value)}
-            required
-          />
-        </div>
-
-        {error && <ErrorMsg>{error}</ErrorMsg>}
-
-        <Actions>
-          <Button type="button" variant="ghost" onClick={() => navigate("/admin")}>
-            Cancelar
-          </Button>
-          <Button type="submit" disabled={saving}>
-            {saving ? "Salvando..." : "Salvar"}
-          </Button>
-        </Actions>
-      </Card>
-    </Page>
+    <div>
+      <Header />
+      <Page>
+        <Title>Editar Post</Title>
+        <Card onSubmit={handleSubmit}>
+          <div>
+            <Label htmlFor="titulo">Título</Label>
+            <Input
+              id="titulo"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="autor">Autor</Label>
+            <Input
+              id="autor"
+              value={autor}
+              onChange={(e) => setAutor(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="data">Data de criação</Label>
+            <Input
+              id="data"
+              type="datetime-local"
+              value={dataCriacao}
+              onChange={(e) => setDataCriacao(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="conteudo">Conteúdo</Label>
+            <TextArea
+              id="conteudo"
+              value={conteudo}
+              onChange={(e) => setConteudo(e.target.value)}
+              required
+            />
+          </div>
+          {error && <ErrorMsg>{error}</ErrorMsg>}
+          <Actions>
+            <Button type="button" variant="ghost" onClick={() => navigate("/admin")}> 
+              Cancelar
+            </Button>
+            <Button type="submit" disabled={saving}>
+              {saving ? "Salvando..." : "Salvar"}
+            </Button>
+          </Actions>
+        </Card>
+      </Page>
+    </div>
   );
 }

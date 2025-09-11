@@ -21,12 +21,12 @@ const Page = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 22px;
-  margin: 0 0 12px;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #2b2b2b;
-  text-align:center;
-  margin-top:50px;
-  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
 `;
 
 const FilterBar = styled.div`
@@ -174,30 +174,29 @@ function Home() {
   }, [filtro]);
 
   return (
-
     <div>
-            <Page>
-      <Header></Header>
-      <Title>Postagens</Title>
+      <Header />
+      <Page>
+        <Title>Postagens</Title>
 
-      <FilterBar>
-        <span>Filtrar:</span>
-        <SearchInput
-          type="search"
-          placeholder="Digite uma palavra (título, autor ou descrição)"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Filtrar postagens"
-        />
-      </FilterBar>
+        <FilterBar>
+          <span>Filtrar:</span>
+          <SearchInput
+            type="search"
+            placeholder="Digite uma palavra (título, autor ou descrição)"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Filtrar postagens"
+          />
+        </FilterBar>
 
-      {loading && <p>Carregando…</p>}
-      {error && <ErrorMsg>Erro: {error}</ErrorMsg>}
+        {loading && <p>Carregando…</p>}
+        {error && <ErrorMsg>Erro: {error}</ErrorMsg>}
 
-      {!loading && !error && (
-        <TableWrap>
-          <Table>
-            <thead>
+        {!loading && !error && (
+          <TableWrap>
+            <Table>
+              <thead>
               <tr>
                 <th style={{ width: "30%" }}>Título</th>
                 <th style={{ width: "18%" }}>Autor</th>

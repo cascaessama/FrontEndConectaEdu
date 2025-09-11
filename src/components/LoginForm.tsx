@@ -7,31 +7,45 @@ import Header from "./Header";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 360px;
-  margin: 64px auto;
-  padding: 24px;
-  border-radius: 12px;
-  background: #f4f6f9;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  gap: 18px;
+  max-width: 340px;
+  margin: 56px auto 0 auto;
+  padding: 32px 28px 28px 28px;
+  border-radius: 16px;
+  background: #f7f9fc;
+  box-shadow: 0 8px 32px rgba(41,112,255,0.10);
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+`;
+
+const FieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 `;
 
 const Label = styled.label`
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
   font-weight: 600;
   color: #2b2b2b;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cfd6e4;
-  border-radius: 8px;
-  font-size: 14px;
-
+  min-width: 180px;
+  max-width: 260px;
+  padding: 12px 14px;
+  border: 1.5px solid #dde6f7;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
   &:focus {
     outline: none;
     border-color: #2970ff;
-    box-shadow: 0 0 0 3px rgba(41, 112, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(41,112,255,0.12);
   }
 `;
 
@@ -41,11 +55,11 @@ const Button = styled.button<{ disabled?: boolean }>`
   border: 0;
   border-radius: 10px;
   font-weight: 700;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
   cursor: pointer;
   background: ${({ disabled }) => (disabled ? "#9fb9ee" : "#2970ff")};
   color: white;
   transition: transform 0.02s ease, background 0.2s ease;
-
   &:active {
     transform: translateY(1px);
   }
@@ -132,7 +146,8 @@ export default function LoginForm() {
 
       <Header></Header>
       <Form onSubmit={handleSubmit}>
-      <div>
+
+      <FieldWrapper>
         <Label htmlFor="fusuario">Usuário</Label>
         <Input
           id="fusuario"
@@ -142,9 +157,9 @@ export default function LoginForm() {
           autoComplete="username"
           required
         />
-      </div>
+      </FieldWrapper>
 
-      <div>
+      <FieldWrapper>
         <Label htmlFor="fsenha">Senha</Label>
         <Input
           id="fsenha"
@@ -154,7 +169,7 @@ export default function LoginForm() {
           autoComplete="current-password"
           required
         />
-      </div>
+      </FieldWrapper>
 
       {error && <ErrorMsg>{error}</ErrorMsg>}
 

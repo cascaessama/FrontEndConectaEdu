@@ -1,6 +1,7 @@
 // src/pages/Admin.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
+import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 
 type Post = {
@@ -26,8 +27,12 @@ const TopBar = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 22px;
-  margin: 0;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
 `;
 
 const Button = styled.button<{ variant?: "primary" | "ghost" | "danger"; disabled?: boolean }>`
@@ -108,12 +113,15 @@ const IconBtn = styled.button`
 `;
 
 const Badge = styled.span`
-  display: inline-block;
-  font-size: 12px;
-  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 4px 12px;
   border-radius: 999px;
   background: #eef3fb;
   color: #3c4b6e;
+  height: 2em;
 `;
 
 // Ícones inline
@@ -237,58 +245,52 @@ export default function Admin() {
   }, [posts]);
 
   return (
-    <Page>
-      <TopBar>
-        
-        <Title>
-          Administração de Posts <Badge>{posts.length}</Badge>
-        </Title>
-
-        <Button onClick={handleCreate}><PlusIcon /> Cadastrar</Button>
-       
-      </TopBar>
-
-      {error && <p style={{ color: "#a61b1b", marginBottom: 12 }}>{error}</p>}
-
-      <TableWrap>
-        <Table>
-          <thead>
-            <tr>
-              <th style={{ width: "24%" }}>Título</th>
-              <th style={{ width: "14%" }}>Autor</th>
-              <th style={{ width: "18%" }}>Data</th>
-              <th>Conteúdo</th>
-              <th style={{ width: "120px" }}>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <tr><td colSpan={5} style={{ padding: 20 }}>Carregando…</td></tr>
-            ) : rows.length === 0 ? (
-              <tr><td colSpan={5} style={{ padding: 20 }}>Nenhum post encontrado.</td></tr>
-            ) : (
-              rows.map((r, idx) => (
-                <tr key={r.rowKey || `row-${idx}`}>
-                  <td>{r.titulo}</td>
-                  <td>{r.autor}</td>
-                  <td>{r.dataFmt}</td>
-                  <td>{r.resumo}</td>
-                  <td>
-                    <Actions>
-                      <IconBtn title="Editar" onClick={() => handleEdit(r.id)}><EditIcon /></IconBtn>
-                      <IconBtn title="Excluir" onClick={() => handleDelete(r.id)}><TrashIcon /></IconBtn>
-                    </Actions>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </Table>
-      </TableWrap>
-
-      <DangerZone>
-                        <Button variant="danger" onClick={handleLogout}>Sair</Button>
-      </DangerZone>
-    </Page>
+    <div>
+      <Header />
+      <Page>
+        <TopBar>
+          <Title>
+            Administração de Posts <Badge>{posts.length}</Badge>
+          </Title>
+          <Button onClick={handleCreate}><PlusIcon /> Cadastrar</Button>
+        </TopBar>
+        {error && <p style={{ color: "#a61b1b", marginBottom: 12 }}>{error}</p>}
+        <TableWrap>
+          <Table>
+            <thead>
+              <tr>
+                <th style={{ width: "24%" }}>Título</th>
+                <th style={{ width: "14%" }}>Autor</th>
+                <th style={{ width: "18%" }}>Data</th>
+                <th>Conteúdo</th>
+                <th style={{ width: "120px" }}>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading ? (
+                <tr><td colSpan={5} style={{ padding: 20 }}>Carregando…</td></tr>
+              ) : rows.length === 0 ? (
+                <tr><td colSpan={5} style={{ padding: 20 }}>Nenhum post encontrado.</td></tr>
+              ) : (
+                rows.map((r, idx) => (
+                  <tr key={r.rowKey || `row-${idx}`}>
+                    <td>{r.titulo}</td>
+                    <td>{r.autor}</td>
+                    <td>{r.dataFmt}</td>
+                    <td>{r.resumo}</td>
+                    <td>
+                      <Actions>
+                        <IconBtn title="Editar" onClick={() => handleEdit(r.id)}><EditIcon /></IconBtn>
+                        <IconBtn title="Excluir" onClick={() => handleDelete(r.id)}><TrashIcon /></IconBtn>
+                      </Actions>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </Table>
+        </TableWrap>
+      </Page>
+    </div>
   );
 }
