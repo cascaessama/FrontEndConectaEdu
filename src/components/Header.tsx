@@ -59,6 +59,7 @@ const Menu = styled.nav`
 `;
 
 const Item = styled(NavLink)`
+  box-sizing: border-box;
   padding: 8px 18px;
   border-radius: 10px;
   text-decoration: none;
@@ -85,10 +86,36 @@ const Item = styled(NavLink)`
     box-shadow: 0 2px 8px rgba(41,112,255,0.12);
   }
   @media (max-width: 600px) {
+    box-sizing: border-box;
     padding: 10px 12px;
     font-size: 1rem;
     width: 100%;
     text-align: center;
+    margin: 0;
+  }
+`;
+
+const LogoutButton = styled.button`
+  box-sizing: border-box;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #e53935;
+  border: 1px solid #e53935;
+  cursor: pointer;
+  transition: background .2s, color .2s, box-shadow .2s, transform .2s;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.12);
+  text-align: center;
+  display: block;
+  @media (max-width: 600px) {
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    display: block;
   }
 `;
 
@@ -121,22 +148,7 @@ export default function Header() {
         <Menu>
           <Item to={homePath} end>Home</Item>
           {isLogged ? (
-            <button
-                style={{
-                  padding: "8px 18px",
-                  borderRadius: "10px",
-                  fontWeight: 700,
-                  color: "#fff",
-                  background: "#e53935",
-                  border: "1px solid #e53935",
-                  cursor: "pointer",
-                  transition: "background .2s, color .2s, box-shadow .2s, transform .2s",
-                  boxShadow: "0 2px 8px rgba(229,57,53,0.12)",
-                }}
-              onClick={handleLogout}
-            >
-              Sair
-            </button>
+            <LogoutButton onClick={handleLogout}>Sair</LogoutButton>
           ) : (
             <Item to="/login">Entrar</Item>
           )}

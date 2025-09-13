@@ -8,6 +8,12 @@ const Page = styled.div`
   max-width: 800px;
   margin: 32px auto;
   padding: 0 16px;
+
+  @media (max-width: 600px) {
+    max-width: 100vw;
+    margin: 0;
+    padding: 0 4vw;
+  }
 `;
 
 const Card = styled.form`
@@ -17,6 +23,13 @@ const Card = styled.form`
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,.06);
+
+  @media (max-width: 600px) {
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 12px 6px;
+    gap: 10px;
+  }
 `;
 
 const Title = styled.h1`
@@ -26,6 +39,11 @@ const Title = styled.h1`
   color: #2b2b2b;
   letter-spacing: 0.5px;
   margin: 0 0 8px 0;
+
+  @media (max-width: 600px) {
+    font-size: 1.15rem;
+    text-align: center;
+  }
 `;
 
 const Label = styled.label`
@@ -47,6 +65,12 @@ const Input = styled.input`
     border-color: #2970ff;
     box-shadow: 0 0 0 3px rgba(41,112,255,.15);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 8px;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -63,6 +87,13 @@ const TextArea = styled.textarea`
     border-color: #2970ff;
     box-shadow: 0 0 0 3px rgba(41,112,255,.15);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 8px;
+    min-height: 100px;
+  }
 `;
 
 const Actions = styled.div`
@@ -70,6 +101,13 @@ const Actions = styled.div`
   gap: 10px;
   justify-content: flex-end;
   margin-top: 8px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 8px;
+    justify-content: stretch;
+    align-items: stretch;
+  }
 `;
 
 const Button = styled.button<{ variant?: "primary" | "ghost"; disabled?: boolean }>`
@@ -83,6 +121,12 @@ const Button = styled.button<{ variant?: "primary" | "ghost"; disabled?: boolean
   color: ${({ variant }) => (variant === "ghost" ? "#2b2b2b" : "#fff")};
 
   &:disabled { opacity: .8; cursor: default; }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
 `;
 
 const ErrorMsg = styled.p`

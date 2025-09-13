@@ -1,5 +1,18 @@
 // src/pages/Admin.tsx
 import React, { useEffect, useMemo, useState } from "react";
+// Hook para detectar tela pequena
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 600);
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return isMobile;
+}
 import styled from "styled-components";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
@@ -147,7 +160,7 @@ export default function Admin() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const isMobile = useIsMobile();
   const token = localStorage.getItem("authToken");
   
   function normalizePost(p: any, idx: number): Post {
@@ -254,42 +267,72 @@ export default function Admin() {
           </Title>
           <Button onClick={handleCreate}><PlusIcon /> Cadastrar</Button>
         </TopBar>
-        {error && <p style={{ color: "#a61b1b", marginBottom: 12 }}>{error}</p>}
-        <TableWrap>
-          <Table>
-            <thead>
-              <tr>
-                <th style={{ width: "24%" }}>Título</th>
-                <th style={{ width: "14%" }}>Autor</th>
-                <th style={{ width: "18%" }}>Data</th>
-                <th>Conteúdo</th>
-                <th style={{ width: "120px" }}>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr><td colSpan={5} style={{ padding: 20 }}>Carregando…</td></tr>
-              ) : rows.length === 0 ? (
-                <tr><td colSpan={5} style={{ padding: 20 }}>Nenhum post encontrado.</td></tr>
-              ) : (
-                rows.map((r, idx) => (
-                  <tr key={r.rowKey || `row-${idx}`}>
-                    <td>{r.titulo}</td>
-                    <td>{r.autor}</td>
-                    <td>{r.dataFmt}</td>
-                    <td>{r.resumo}</td>
-                    <td>
-                      <Actions>
-                        <IconBtn title="Editar" onClick={() => handleEdit(r.id)}><EditIcon /></IconBtn>
-                        <IconBtn title="Excluir" onClick={() => handleDelete(r.id)}><TrashIcon /></IconBtn>
-                      </Actions>
-                    </td>
+        {/* Exibe lista simplificada em telas pequenas, tabela completa em desktop */}
+        {isMobile ? (
+          <div style={{ marginTop: 16 }}>
+            {loading ? (
+              <div style={{ padding: 20 }}>Carregando…</div>
+            ) : rows.length === 0 ? (
+              <div style={{ padding: 20 }}>Nenhum post encontrado.</div>
+            ) : (
+              rows.map((r, idx) => (
+                <div key={r.rowKey || `row-m-${idx}`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '12px 0',
+                    borderBottom: '1px solid #e8edf6',
+                  }}>
+                  <span style={{ fontWeight: 600, fontSize: 16 }}>{r.titulo}</span>
+                  <Actions>
+                    <IconBtn title="Editar" onClick={() => handleEdit(r.id)}><EditIcon /></IconBtn>
+                    <IconBtn title="Excluir" onClick={() => handleDelete(r.id)}><TrashIcon /></IconBtn>
+                  </Actions>
+                </div>
+              ))
+            )}
+          </div>
+        ) : (
+          <>
+            {error && <p style={{ color: "#a61b1b", marginBottom: 12 }}>{error}</p>}
+            <TableWrap>
+              <Table>
+                <thead>
+                  <tr>
+                    <th style={{ width: "24%" }}>Título</th>
+                    <th style={{ width: "14%" }}>Autor</th>
+                    <th style={{ width: "18%" }}>Data</th>
+                    <th>Conteúdo</th>
+                    <th style={{ width: "120px" }}>Ações</th>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </Table>
-        </TableWrap>
+                </thead>
+                <tbody>
+                  {loading ? (
+                    <tr><td colSpan={5} style={{ padding: 20 }}>Carregando…</td></tr>
+                  ) : rows.length === 0 ? (
+                    <tr><td colSpan={5} style={{ padding: 20 }}>Nenhum post encontrado.</td></tr>
+                  ) : (
+                    rows.map((r, idx) => (
+                      <tr key={r.rowKey || `row-${idx}`}>
+                        <td>{r.titulo}</td>
+                        <td>{r.autor}</td>
+                        <td>{r.dataFmt}</td>
+                        <td>{r.resumo}</td>
+                        <td>
+                          <Actions>
+                            <IconBtn title="Editar" onClick={() => handleEdit(r.id)}><EditIcon /></IconBtn>
+                            <IconBtn title="Excluir" onClick={() => handleDelete(r.id)}><TrashIcon /></IconBtn>
+                          </Actions>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </Table>
+            </TableWrap>
+          </>
+        )}
       </Page>
     </div>
   );
