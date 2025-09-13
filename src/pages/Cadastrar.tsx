@@ -32,11 +32,11 @@ const Label = styled.label`
   font-weight: 600;
   color: #2b2b2b;
   margin-bottom: 6px;
-  display: inline-block;
+  display: block;
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: 97%;
   padding: 10px 12px;
   border: 1px solid #cfd6e4;
   border-radius: 8px;
@@ -50,7 +50,7 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  width: 100%;
+  width: 97%;
   min-height: 140px;
   padding: 10px 12px;
   border: 1px solid #cfd6e4;

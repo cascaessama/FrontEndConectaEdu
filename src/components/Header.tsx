@@ -9,6 +9,10 @@ const Bar = styled.header`
   box-shadow: 0 6px 20px rgba(41,112,255,.06);
   padding-top: 12px;
   padding-bottom: 12px;
+  @media (max-width: 600px) {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 `;
 
 const Container = styled.div`
@@ -18,6 +22,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 8px;
+  }
 `;
 
 const Brand = styled(NavLink)`
@@ -31,12 +40,22 @@ const Brand = styled(NavLink)`
   margin-right: auto;
   transition: color .2s;
   &:hover { opacity: .9; color: #1e293b; }
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+    margin-right: 0;
+  }
 `;
 
 const Menu = styled.nav`
   display: flex;
   gap: 8px;
   box-shadow: 0 2px 8px rgba(41,112,255,0.06);
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    box-shadow: none;
+  }
 `;
 
 const Item = styled(NavLink)`
@@ -65,6 +84,12 @@ const Item = styled(NavLink)`
     color: #ffffff;
     box-shadow: 0 2px 8px rgba(41,112,255,0.12);
   }
+  @media (max-width: 600px) {
+    padding: 10px 12px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export default function Header() {
@@ -83,10 +108,11 @@ export default function Header() {
   }, []);
 
   const homePath = isLogged ? "/admin" : "/";
+  const brandPath = isLogged ? "/admin" : "/";
   return (
     <Bar>
       <Container>
-        <Brand to="/">
+        <Brand to={brandPath}>
           <span style={{display: 'inline-flex', alignItems: 'center', gap: '10px'}}>
             <img src={logo} alt="Logo" style={{height: '32px', width: '32px'}} />
             ConectaEdu
@@ -96,17 +122,17 @@ export default function Header() {
           <Item to={homePath} end>Home</Item>
           {isLogged ? (
             <button
-              style={{
-                padding: "8px 18px",
-                borderRadius: "10px",
-                fontWeight: 700,
-                color: "#fff",
-                background: "#2970ff",
-                border: "1px solid #2970ff",
-                cursor: "pointer",
-                transition: "background .2s, color .2s, box-shadow .2s, transform .2s",
-                boxShadow: "0 2px 8px rgba(41,112,255,0.12)",
-              }}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "10px",
+                  fontWeight: 700,
+                  color: "#fff",
+                  background: "#e53935",
+                  border: "1px solid #e53935",
+                  cursor: "pointer",
+                  transition: "background .2s, color .2s, box-shadow .2s, transform .2s",
+                  boxShadow: "0 2px 8px rgba(229,57,53,0.12)",
+                }}
               onClick={handleLogout}
             >
               Sair

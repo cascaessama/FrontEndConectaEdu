@@ -1,5 +1,6 @@
 // src/pages/LerPost.tsx
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -15,6 +16,10 @@ const Page = styled.div`
   max-width: 860px;
   margin: 32px auto;
   padding: 0 16px;
+  @media (max-width: 600px) {
+    margin: 16px auto;
+    padding: 0 4px;
+  }
 `;
 
 const Card = styled.div`
@@ -22,6 +27,9 @@ const Card = styled.div`
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  @media (max-width: 600px) {
+    padding: 12px;
+  }
 `;
 
 const Title = styled.h1`
@@ -31,12 +39,18 @@ const Title = styled.h1`
   color: #2b2b2b;
   letter-spacing: 0.5px;
   margin: 0 0 8px 0;
+  @media (max-width: 600px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Meta = styled.p`
   margin: 0 0 16px;
   color: #5b6b8b;
   font-size: 14px;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 `;
 
 const Content = styled.pre`
@@ -45,12 +59,19 @@ const Content = styled.pre`
   word-break: break-word;
   color: #1e293b;
   line-height: 1.55;
+  @media (max-width: 600px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const Actions = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 16px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const Button = styled.button<{ variant?: "primary" | "ghost" }>`
@@ -63,6 +84,11 @@ const Button = styled.button<{ variant?: "primary" | "ghost" }>`
   color: ${({ variant }) => (variant === "ghost" ? "#2b2b2b" : "#ffffff")};
   &:hover {
     background: ${({ variant }) => (variant === "ghost" ? "#f8fafc" : "#1d4ed8")};
+  }
+  @media (max-width: 600px) {
+    padding: 12px 8px;
+    font-size: 1rem;
+    width: 100%;
   }
 `;
 
@@ -130,22 +156,25 @@ export default function LerPost() {
     post?.dataCriacao ? new Date(post.dataCriacao).toLocaleString("pt-BR") : "-";
 
   return (
-    <Page>
-      {loading && <p>Carregando…</p>}
-      {error && <ErrorMsg>Erro: {error}</ErrorMsg>}
+    <>
+      <Header />
+      <Page>
+        {loading && <p>Carregando…</p>}
+        {error && <ErrorMsg>Erro: {error}</ErrorMsg>}
 
-      {post && !loading && !error && (
-        <Card>
-          <Title>{post.titulo}</Title>
-          <Meta>por {post.autor} — {dataFmt}</Meta>
-          <Content>{post.conteudo}</Content>
+        {post && !loading && !error && (
+          <Card>
+            <Title>{post.titulo}</Title>
+            <Meta>Por {post.autor} — {dataFmt}</Meta>
+            <Content>{post.conteudo}</Content>
 
-          <Actions>
-            <Button variant="ghost" onClick={() => navigate(-1)}>Voltar</Button>
-            <Button onClick={() => navigate(`/admin/edit/${post.id}`)}>Editar</Button>
-          </Actions>
-        </Card>
-      )}
-    </Page>
+            <Actions>
+              <Button variant="ghost" onClick={() => navigate(-1)}>Voltar</Button>
+              <Button onClick={() => navigate(`/admin/edit/${post.id}`)}>Editar</Button>
+            </Actions>
+          </Card>
+        )}
+      </Page>
+    </>
   );
 }
