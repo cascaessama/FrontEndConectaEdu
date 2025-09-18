@@ -93,7 +93,7 @@ Página inicial amigável e intuitiva, onde os alunos podem visualizar novidades
 Permite aos alunos buscar rapidamente por posts, conteúdos e informações relevantes dentro da plataforma, facilitando o acesso ao que desejam encontrar.
 
 <div align="center" style="display: flex; gap: 20px; justify-content: center;">
-	<img src="images/pesquisaluno/web.png" alt="Pesquisa Aluno Web" width="40%" />
+	<img src="images/pesquisaaluno/web.png" alt="Pesquisa Aluno Web" width="40%" />
 	<img src="images/pesquisaaluno/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
 </div>
 
