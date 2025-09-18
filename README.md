@@ -75,10 +75,7 @@ Pronto! O frontend estará disponível localmente usando Docker.
 
 ---
 
----
-
 ## 📝 Funcionalidades
----
 
 ### <img src="https://img.icons8.com/color/48/000000/student-male--v1.png" height="24"/> Acesso alunos
 #### <img src="https://img.icons8.com/color/24/000000/home--v1.png"/> Homepage
@@ -89,6 +86,8 @@ Página inicial amigável e intuitiva, onde os alunos podem visualizar novidades
 	<img src="images/homepage/mobile.png" alt="Homepage Mobile" width="40%" />
 </div>
 
+---
+
 #### <img src="https://img.icons8.com/color/24/000000/search--v1.png"/> Pesquisa
 Permite aos alunos buscar rapidamente por posts, conteúdos e informações relevantes dentro da plataforma, facilitando o acesso ao que desejam encontrar.
 
@@ -96,6 +95,8 @@ Permite aos alunos buscar rapidamente por posts, conteúdos e informações rele
 	<img src="images/pesquisaaluno/web.png" alt="Pesquisa Aluno Web" width="40%" />
 	<img src="images/pesquisaaluno/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
 </div>
+
+---
 
 #### <img src="https://img.icons8.com/color/24/000000/news.png"/> Exibição de posts
 Os alunos têm acesso a uma lista de posts publicados, podendo visualizar detalhes e interagir com o conteúdo disponibilizado pelos professores.
@@ -116,6 +117,8 @@ Os alunos têm acesso a uma lista de posts publicados, podendo visualizar detalh
 	<img src="images/login/mobile.png" alt="Login Mobile" width="40%" />
 </div>
 
+---
+
 #### <img src="https://img.icons8.com/color/24/000000/settings.png"/> Admin
 Painel administrativo onde o professor pode gerenciar posts e visualizar publicado.
 
@@ -123,6 +126,8 @@ Painel administrativo onde o professor pode gerenciar posts e visualizar publica
 	<img src="images/admin/web.png" alt="Login Web" width="40%" />
 	<img src="images/admin/mobile.png" alt="Login Mobile" width="40%" />
 </div>
+
+---
 
 #### <img src="https://img.icons8.com/color/24/000000/search--v1.png"/> Pesquisa de post
 Ferramenta que permite ao professor localizar rapidamente posts já cadastrados, facilitando a gestão e edição dos conteúdos.
@@ -132,6 +137,8 @@ Ferramenta que permite ao professor localizar rapidamente posts já cadastrados,
 	<img src="images/pesquisaprofessor/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
 </div>
 
+---
+
 #### <img src="https://img.icons8.com/color/24/000000/add-file.png"/> Cadastro de post
 Funcionalidade para criação de novos posts, permitindo ao professor compartilhar informações, novidades e materiais com os alunos.
 
@@ -139,6 +146,8 @@ Funcionalidade para criação de novos posts, permitindo ao professor compartilh
 	<img src="images/cadastro/web.png" alt="Login Web" width="40%" />
 	<img src="images/cadastro/mobile.png" alt="Login Mobile" width="40%" />
 </div>
+
+---
 
 #### <img src="https://img.icons8.com/color/24/000000/edit-file.png"/> Edição de post
 Permite ao professor atualizar e modificar posts existentes, mantendo o conteúdo sempre relevante e atualizado.
@@ -148,6 +157,8 @@ Permite ao professor atualizar e modificar posts existentes, mantendo o conteúd
 	<img src="images/editar/mobile.png" alt="Login Mobile" width="40%" />
 </div>
 
+---
+
 #### <img src="https://img.icons8.com/color/24/000000/delete-file.png"/> Remoção de post
 Opção para excluir posts que não são mais necessários, garantindo que apenas informações relevantes permaneçam visíveis aos alunos.
 
@@ -155,10 +166,6 @@ Opção para excluir posts que não são mais necessários, garantindo que apena
 	<img src="images/remover/web.png" alt="Login Web" width="40%" />
 	<img src="images/remover/mobile.png" alt="Login Mobile" width="40%" />
 </div>
-
----
-
-
 
 ---
 
