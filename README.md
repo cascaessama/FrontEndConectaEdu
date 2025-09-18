@@ -85,16 +85,16 @@ Pronto! O frontend estará disponível localmente usando Docker.
 Página inicial amigável e intuitiva, onde os alunos podem visualizar novidades e informações importantes da plataforma.
 
 <div align="center" style="display: flex; gap: 20px; justify-content: center;">
-	<img src="images/Homepage/web.png" alt="Homepage Web" width="40%" />
-	<img src="images/Homepage/mobile.png" alt="Homepage Mobile" width="40%" />
+	<img src="images/homepage/web.png" alt="Homepage Web" width="40%" />
+	<img src="images/homepage/mobile.png" alt="Homepage Mobile" width="40%" />
 </div>
 
 #### <img src="https://img.icons8.com/color/24/000000/search--v1.png"/> Pesquisa
 Permite aos alunos buscar rapidamente por posts, conteúdos e informações relevantes dentro da plataforma, facilitando o acesso ao que desejam encontrar.
 
 <div align="center" style="display: flex; gap: 20px; justify-content: center;">
-	<img src="images/PesquisaAluno/web.png" alt="Pesquisa Aluno Web" width="40%" />
-	<img src="images/PesquisaAluno/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
+	<img src="images/pesquisaluno/web.png" alt="Pesquisa Aluno Web" width="40%" />
+	<img src="images/pesquisaaluno/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
 </div>
 
 #### <img src="https://img.icons8.com/color/24/000000/news.png"/> Exibição de posts
@@ -128,8 +128,8 @@ Painel administrativo onde o professor pode gerenciar posts e visualizar publica
 Ferramenta que permite ao professor localizar rapidamente posts já cadastrados, facilitando a gestão e edição dos conteúdos.
 
 <div align="center" style="display: flex; gap: 20px; justify-content: center;">
-	<img src="images/PesquisaProfessor/web.png" alt="Pesquisa Aluno Web" width="40%" />
-	<img src="images/PesquisaProfessor/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
+	<img src="images/pesquisaprofessor/web.png" alt="Pesquisa Aluno Web" width="40%" />
+	<img src="images/pesquisaprofessor/mobile.png" alt="Pesquisa Aluno Mobile" width="40%" />
 </div>
 
 #### <img src="https://img.icons8.com/color/24/000000/add-file.png"/> Cadastro de post
