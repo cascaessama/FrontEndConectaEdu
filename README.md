@@ -14,22 +14,6 @@ Bem-vindo ao projeto **FrontEnd ConectaEdu**! Este é o frontend de uma platafor
 
 ---
 
-
-## 📑 Índice
-
-
-- [🛠️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [🌐 Aplicação Online](#-aplicação-online)
-- [🐳 Como executar via Docker](#-como-executar-via-docker)
-- [🚩 Como rodar o projeto localmente](#-como-rodar-o-projeto-localmente)
-- [📝 Funcionalidades](#-funcionalidades)
-- [📦 Estrutura do Projeto](#-estrutura-do-projeto)
-
----
-
----
-
-
 ## 🛠️ Tecnologias Utilizadas
 - <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" height="20"/> [React](https://react.dev/)
 - <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" height="20"/> [TypeScript](https://www.typescriptlang.org/)
@@ -40,7 +24,7 @@ Bem-vindo ao projeto **FrontEnd ConectaEdu**! Este é o frontend de uma platafor
 ---
 
 
-## 🌐 Aplicação Online <img src="https://img.icons8.com/color/48/000000/internet--v1.png" height="24"/>
+## <img src="https://img.icons8.com/color/48/000000/internet--v1.png" height="24"/> Aplicação Online
 
 Acesse a aplicação está disponível em:
 
@@ -51,7 +35,7 @@ Acesse a aplicação está disponível em:
 ---
 
 
-## 🐳 Como executar via Docker <img src="https://img.icons8.com/color/48/000000/docker.png" height="24"/>
+## <img src="https://img.icons8.com/color/48/000000/docker.png" height="24"/> Como executar via Docker
 
 Você pode rodar o projeto diretamente usando a imagem disponível no Docker Hub:
 
@@ -71,7 +55,7 @@ Pronto! O frontend estará disponível localmente usando Docker.
 ---
 
 
-## 🚩 Como rodar o projeto localmente <img src="https://img.icons8.com/color/48/000000/source-code.png" height="24"/>
+## <img src="https://img.icons8.com/color/48/000000/source-code.png" height="24"/> Como rodar o projeto localmente
 
 1. **Clone o repositório:**
 	```bash
