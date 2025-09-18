@@ -192,16 +192,16 @@ Opção para excluir posts que não são mais necessários, garantindo que apena
 │   ├── Login/
 │   │   ├── mobile.png
 │   │   └── web.png
-│   ├── admin/
+│   ├── Admin/
 │   │   ├── mobile.png
 │   │   └── web.png
-│   ├── cadastro/
+│   ├── Cadastro/
 │   │   ├── mobile.png
 │   │   └── web.png
-│   ├── editar/
+│   ├── Editar/
 │   │   ├── mobile.png
 │   │   └── web.png
-│   ├── remover/
+│   ├── Remover/
 │   │   ├── mobile.png
 │   │   └── web.png
 │   ├── PesquisaAluno/
