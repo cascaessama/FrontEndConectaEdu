@@ -248,14 +248,21 @@ export default function Admin() {
     navigate("/admin/cadastrar");
   }
 
+  const [search, setSearch] = useState("");
   const rows = useMemo(() => {
-    return posts.map((p) => {
+    const filtered = posts.filter(
+      (p) =>
+        p.titulo.toLowerCase().includes(search.toLowerCase()) ||
+        p.autor.toLowerCase().includes(search.toLowerCase()) ||
+        p.conteudo.toLowerCase().includes(search.toLowerCase())
+    );
+    return filtered.map((p) => {
       const dataFmt = p.dataCriacao ? new Date(p.dataCriacao).toLocaleString("pt-BR") : "-";
       const resumo =
         (p.conteudo || "").length > 120 ? p.conteudo.slice(0, 120) + "…" : p.conteudo || "";
       return { ...p, dataFmt, resumo };
     });
-  }, [posts]);
+  }, [posts, search]);
 
   return (
     <div>
@@ -270,6 +277,22 @@ export default function Admin() {
         {/* Exibe lista simplificada em telas pequenas, tabela completa em desktop */}
         {isMobile ? (
           <div style={{ marginTop: 16 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 12 }}>
+              <input
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Pesquisar por título, autor ou conteúdo"
+                style={{
+                  width: '100%',
+                  maxWidth: 220,
+                  padding: '10px 12px',
+                  borderRadius: 8,
+                  border: '1px solid #cfd6e4',
+                  fontSize: 16
+                }}
+              />
+            </div>
             {loading ? (
               <div style={{ padding: 20 }}>Carregando…</div>
             ) : rows.length === 0 ? (
@@ -295,6 +318,22 @@ export default function Admin() {
           </div>
         ) : (
           <>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 12 }}>
+              <input
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Pesquisar por título, autor ou conteúdo"
+                style={{
+                  width: '100%',
+                  maxWidth: 1000,
+                  padding: '10px 12px',
+                  borderRadius: 8,
+                  border: '1px solid #cfd6e4',
+                  fontSize: 16
+                }}
+              />
+            </div>
             {error && <p style={{ color: "#a61b1b", marginBottom: 12 }}>{error}</p>}
             <TableWrap>
               <Table>
@@ -314,7 +353,7 @@ export default function Admin() {
                     <tr><td colSpan={5} style={{ padding: 20 }}>Nenhum post encontrado.</td></tr>
                   ) : (
                     rows.map((r, idx) => (
-                      <tr key={r.rowKey || `row-${idx}`}>
+                      <tr key={r.rowKey || `row-${idx}`}> 
                         <td>{r.titulo}</td>
                         <td>{r.autor}</td>
                         <td>{r.dataFmt}</td>
